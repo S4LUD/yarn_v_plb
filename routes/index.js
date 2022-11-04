@@ -287,11 +287,11 @@ router.post("/park/details", (req, res) => {
       fullHoursRate = Math.round(calDefRate / 24) * 5000;
       defaultRate = 40;
       if (req.body.lotType === "SP")
-        hourlyRate = (calHourRate - Math.round(calDefRate / 24) * 24) * 20;
+        hourlyRate = (calHourRate - Math.round(24 / calDefRate) * 24) * 20;
       if (req.body.lotType === "MP")
-        hourlyRate = (calHourRate - Math.round(calDefRate / 24) * 24) * 60;
+        hourlyRate = (calHourRate - Math.round(24 / calDefRate) * 24) * 60;
       if (req.body.lotType === "LP")
-        hourlyRate = (calHourRate - Math.round(calDefRate / 24) * 24) * 100;
+        hourlyRate = (calHourRate - Math.round(24 / calDefRate) * 24) * 100;
     } else {
       if (calDefRate >= 3) defaultRate = 40;
       if (calHourRate > 0) {
